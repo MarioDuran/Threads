@@ -2,7 +2,8 @@ import threading
 import time
 
 contador = 0
-ITERACIONES = 100_000
+ITERACIONES = 100000
+
 lock = threading.Lock()
 
 def incrementar():
@@ -12,9 +13,7 @@ def incrementar():
         with lock:
             valor = contador
             valor = valor + 1
-
             time.sleep(0)
-
             contador = valor
 
 hilo_a = threading.Thread(target=incrementar)
@@ -26,5 +25,4 @@ hilo_b.start()
 hilo_a.join()
 hilo_b.join()
 
-print("Resultado esperado:", ITERACIONES * 2)
-print("Resultado obtenido:", contador)
+print("Resultado esperado:", contador)
